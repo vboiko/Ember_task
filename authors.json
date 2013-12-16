@@ -1,18 +1,20 @@
-[{
+{
+  "author": [{
     "id": 1,
     "full_name": "James Joyce",
-    "biography": "James Joyce (February 2, 1882 - January 13, 1941) was one of the most preeminent Irish authors of the twentieth century. He is known for his literary innovation such as a strictly focused narrative and indirect style. Although not strictly originally, James Joyce brought the aforementioned writing methods were to an unparalleled height.",
+    "biography": "<p><b>James Joyce</b> <small>(February 2, 1882 - January 13, 1941)</small> was one of the most preeminent Irish authors of the twentieth century. He is known for his literary innovation such as a strictly focused narrative and indirect style. Although not strictly originally, James Joyce brought the aforementioned writing methods were to an unparalleled height.</p>",    
     "books": ["1", "2"]
   },
   {
     "id": 2,
     "full_name": "F. Scott Fitzgerald",
-    "biography": "Francis Scott Key Fitzgerald (September 24, 1896 – December 21, 1940) was an American author of novels and short stories, whose works are the paradigmatic writings of the Jazz Age, a term he coined. He is widely regarded as one of the greatest American writers of the 20th century.[1] Fitzgerald is considered a member of the 'Lost Generation' of the 1920s. He finished four novels: This Side of Paradise, The Beautiful and Damned, The Great Gatsby (his most famous), and Tender Is the Night. A fifth, unfinished novel, The Love of the Last Tycoon, was published posthumously. Fitzgerald also wrote many short stories that treat themes of youth and promise along with age and despair.",
+    "biography": "<p><b>Francis Scott Key Fitzgerald</b> <small>(September 24, 1896 – December 21, 1940)</small> was an American author of novels and short stories, whose works are the paradigmatic writings of the Jazz Age, a term he coined. He is widely regarded as one of the greatest American writers of the 20th century. Fitzgerald is considered a member of the 'Lost Generation' of the 1920s. He finished four novels: This Side of Paradise, The Beautiful and Damned, The Great Gatsby (his most famous), and Tender Is the Night. A fifth, unfinished novel, The Love of the Last Tycoon, was published posthumously. Fitzgerald also wrote many short stories that treat themes of youth and promise along with age and despair.</p>",
     "books": ["3", "4"]
   },
   {
     "id": 3,
     "full_name": "Leo Tolstoy",
-    "biography": "After reading Schopenhauer's The World as Will and Representation, Tolstoy gradually became converted to the ascetic morality upheld in that work as the proper spiritual path for the upper classes: 'Do you know what this summer has meant for me? Constant raptures over Schopenhauer and a whole series of spiritual delights which I've never experienced before. ... no student has ever studied so much on his course, and learned so much, as I have this summer.'",
+    "biography": "<p>After reading Schopenhauer's The World as Will and Representation, <b>Tolstoy</b> gradually became converted to the ascetic morality upheld in that work as the proper spiritual path for the upper classes: 'Do you know what this summer has meant for me? Constant raptures over Schopenhauer and a whole series of spiritual delights which I've never experienced before. ... no student has ever studied so much on his course, and learned so much, as I have this summer.'</p>",
     "books": ["5","6"]
   }]
+}

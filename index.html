@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ember Task</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+</head>
+<body class="color">
+
+  <script type="text/x-handlebars">
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Book Store</a>
+        <ul class="nav">
+          <li>{{#link-to 'books'}}Books{{/link-to}}</li>
+          <li>{{#link-to 'authors'}}Authors{{/link-to}}</li>
+          <li>{{#link-to 'about'}}About{{/link-to}}</li>
+        </ul>
+      </div>
+    </div>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="books">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <table class='table'>
+            <thead>
+              <tr><th>New Books</th></tr>
+            </thead>
+            {{#each model}}
+            <tr><td>
+                {{#link-to 'book' this}}{{name}}{{/link-to}}
+            </td></tr>
+            {{/each}}
+          </table>
+        </div>
+        <div class="span9">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="books/index">
+    <p class="text-info"><b>Make your choice. Its your call!</b></p>
+  </script>
+
+  <script type="text/x-handlebars" id="book">
+  <div class="row">
+    <div class="span9">{{description}}<br/>{{authors}}</div>
+    <div class="span3"><img {{bindAttr src="image"}}></div>
+  </div>  
+  </script>
+
+
+  <script type="text/x-handlebars" id="authors">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <table class='table'>
+            <thead>
+              <tr><th>Best Authors</th></tr>
+            </thead>
+            {{#each model}}
+            <tr><td>
+                {{#link-to 'author' this}}{{name}}{{/link-to}}
+            </td></tr>
+            {{/each}}
+          </table>
+        </div>
+        <div class="span9">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="authors/index">
+    <p class="text-info"><b>There is an author for everyone...</b></p>
+  </script>
+
+  <script type="text/x-handlebars" id="author">
+    <div>{{biography}}<br/>{{books}}</div>
+  </script>
+
+
+  <script type="text/x-handlebars" id="about">
+    <div class='about'>
+      <p><b><i><big>Wellcome to the best Book Store ever!</big></i></b></p><p>We aim here not to make money, but to spread the classic culture and sense of the real beauty to our customers. We are your friends here, feel free to ask for advice what to read and where to start your way in classic literature.</p>
+    </div>
+  </script>
+
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember-1.0.0-rc.8.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

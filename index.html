@@ -24,7 +24,7 @@
     {{outlet}}
   </script>
 
-  <script type="text/x-handlebars" id="books">
+ <script type="text/x-handlebars" id="books">
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
@@ -32,7 +32,7 @@
             <thead>
               <tr><th>New Books</th></tr>
             </thead>
-            {{#each model}}
+            {{#each}}
             <tr><td>
                 {{#link-to 'book' this}}{{name}}{{/link-to}}
             </td></tr>
@@ -52,7 +52,7 @@
 
   <script type="text/x-handlebars" id="book">
   <div class="row">
-    <div class="span9">{{description}}<br/>{{authors}}</div>
+    <div class="span9">{{author}}</br>{{description}}</div>
     <div class="span3"><img {{bindAttr src="image"}}></div>
   </div>  
   </script>
@@ -66,7 +66,7 @@
             <thead>
               <tr><th>Best Authors</th></tr>
             </thead>
-            {{#each model}}
+            {{#each}}
             <tr><td>
                 {{#link-to 'author' this}}{{name}}{{/link-to}}
             </td></tr>
@@ -79,15 +79,13 @@
       </div>
     </div>
   </script>
-
   <script type="text/x-handlebars" id="authors/index">
     <p class="text-info"><b>There is an author for everyone...</b></p>
   </script>
 
   <script type="text/x-handlebars" id="author">
-    <div>{{biography}}<br/>{{books}}</div>
+    <div>{{biography}}</br>{{book}}</div>
   </script>
-
 
   <script type="text/x-handlebars" id="about">
     <div class='about'>
@@ -97,10 +95,9 @@
 
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0.js"></script>
-  <script src="js/libs/ember-1.0.0-rc.8.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+  <script src="http://builds.emberjs.com/release/ember.js"></script>
+  <script src="http://builds.emberjs.com/canary/ember-data.js"></script>
   <script src="js/app.js"></script>
-
+  <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js">
 </body>
 </html>

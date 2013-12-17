@@ -6,7 +6,7 @@ App = Ember.Application.create({});
     App.Author = DS.Model.extend({
       name: DS.attr('string'),
       biography: DS.attr('string'),
-      books: DS.hasMany('book', { async: true })
+      book_ids: DS.hasMany('book', { async: true })
     });
 
     App.Book = DS.Model.extend({

@@ -52,7 +52,7 @@
 
   <script type="text/x-handlebars" id="book">
   <div class="row">
-    <div class="span9">{{author}}</br>{{description}}</div>
+        <div class="span9">{{#link-to 'author' author.id}}{{author.name}}{{/link-to}}</br>{{{description}}}</div>
     <div class="span3"><img {{bindAttr src="image"}}></div>
   </div>  
   </script>
@@ -68,7 +68,7 @@
             </thead>
             {{#each}}
             <tr><td>
-                {{#link-to 'author' this}}{{name}}{{/link-to}}
+                {{#link-to 'author' id}}{{name}}{{/link-to}}
             </td></tr>
             {{/each}}
           </table>
@@ -84,7 +84,12 @@
   </script>
 
   <script type="text/x-handlebars" id="author">
-    <div>{{biography}}</br>{{book}}</div>
+    <div>
+      {{#each book in book_ids}}       
+      <div>{{#link-to 'book' book_ids.id}}{{book.name}}{{/link-to}} 
+      {{/each}}
+    </br>{{{biography}}}</div>
+     </div>
   </script>
 
   <script type="text/x-handlebars" id="about">

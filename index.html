@@ -86,7 +86,7 @@
   <script type="text/x-handlebars" id="author">
     <div>
       {{#each book in book_ids}}       
-      <div>{{#link-to 'book' book_ids.id}}{{book.name}}{{/link-to}} 
+      <div>{{#link-to 'book' book.id}}{{book.name}}{{/link-to}} 
       {{/each}}
     </br>{{{biography}}}</div>
      </div>

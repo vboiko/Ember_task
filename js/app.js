@@ -13,7 +13,7 @@ App = Ember.Application.create({});
       name: DS.attr('string'),
       description: DS.attr('string'),
       image: DS.attr('string'),
-      author: DS.belongsTo('author', { async: true })
+      author_ids: DS.hasMany('author', { async: true })
     });
 
 
@@ -25,7 +25,7 @@ App = Ember.Application.create({});
         this.resource('book', { path: ':book_id' });
       });
       this.resource('authors', function() {
-        this.resource('author', { path: ':author' });
+        this.resource('author', { path: ':author_id' });
       });
     });
 
@@ -50,7 +50,7 @@ App = Ember.Application.create({});
 
     App.AuthorRoute = Ember.Route.extend({
       model: function(params) {
-        return this.get('store').find('author', params.author);
+        return this.get('store').find('author', params.author_id);
       }
     });
 
@@ -62,42 +62,49 @@ App.Book.FIXTURES = [{
   "name": "Finnegans Wake",
   "image": "http://parallelpress.library.wisc.edu/books/images/finnegans-wake-large.jpg",
   "description": "<p><b>Finnegans Wake</b> comprises seventeen chapters, divided into four Books. Book I contains eight chapters, Books II and III contain four, and Book IV only consists of one short chapter.</p> <p>The chapters appear without titles, and while Joyce never provided possible chapter titles as he had done for Ulysses, he did title various sections published separately (see Publication history below). The standard critical practice, however, is to indicate book number in Roman numerals, and chapter title in Arabic, so that III.2, for example, indicates the second chapter of the third book.</p>",
-  "author": 1
+  "author_ids": ["1"]
 },
   {
     "id": 2,
     "name": "Ulysses",
     "image": "http://upload.wikimedia.org/wikipedia/commons/c/c0/UlyssesCover.jpg",
     "description": "<p><b>Ulysses</b> records events in the lives of two central characters--Leopold Bloom and Stephen Dedalus--on a single day in Dublin. With its depth and complexities, Ulysses completely changed our understanding of literature and language.</p>",
-    "author": 1
+     "author_ids": ["1"]
   },
   {
     "id": 3,
     "name": "Tender Is the Night ",
     "image": "http://upload.wikimedia.org/wikipedia/en/d/d2/TenderIsTheNight_%28Novel%29_1st_edition_cover.jpg",
     "description": "<p>It is the French Riviera in the 1920s. <i>Nicole</i> and <i>Dick Diver</i> are a wealthy, elegant, magnetic couple. A coterie of admirers are drawn to them, none more so than the blooming young starlet Rosemary Hoyt. When Rosemary falls for Dick, the Diver's calculated perfection begins to crack. As dark truths emerge, Fitzgerald shows both the disintegration of a marriage and the failure of idealism. <b>Tender is the Night</b> is as sad as it is beautiful.</p>",
-    "author": 2
+    "author_ids": ["2"]
   },
   {
     "id": 4,
     "name": "The Great Gatsby",
     "image": "http://upload.wikimedia.org/wikipedia/en/b/b0/Gatsby_1925_jacket.gif",
     "description": "<p><b>The Great Gatsby</b> is a 1925 novel written by American author <i>F. Scott Fitzgerald</i> that follows a cast of characters living in the fictional town of West Egg on prosperous Long Island in the summer of 1922.</p> <p>The story primarily concerns the young and mysterious millionaire Jay Gatsby and his quixotic passion for the beautiful Daisy Buchanan. Considered to be Fitzgerald's magnum opus, The Great Gatsby explores themes of decadence, idealism, resistance to change, social upheaval, and excess, creating a portrait of the Jazz Age that has been described as a cautionary tale regarding the American Dream.</p>",
-    "author": 2
+     "author_ids": ["2"]
   },
   {
     "id": 5,
     "name": "Anna Karenina",
     "image": "http://upload.wikimedia.org/wikipedia/commons/c/c7/AnnaKareninaTitle.jpg",
     "description": "<p><i>Leo Tolstoy</i>’s classic story of doomed love is one of the most admired novels in world literature. Generations of readers have been enthralled by his magnificent heroine, the unhappily married <i>Anna Karenina</i>, and her tragic affair with dashing <i>Count Vronsky</i>.</p><p>In their world frivolous liaisons are commonplace, but Anna and Vronsky’s consuming passion makes them a target for scorn and leads to Anna’s increasing isolation. The heartbreaking trajectory of their relationship contrasts sharply with the colorful swirl of friends and family members who surround them, especially the newlyweds Kitty and Levin, who forge a touching bond as they struggle to make a life together. <b>Anna Karenina</b> is a masterpiece not only because of the unforgettable woman at its core and the stark drama of her fate, but also because it explores and illuminates the deepest questions about how to live a fulfilled life.</p>",
-    "author": 3
+    "author_ids": ["3"]
   },
   {
     "id": 6,
     "name": "War and Peace",
     "image": "http://bestlittlebookshelf.files.wordpress.com/2010/03/6a00d4141aa2f0685e00fa968f44670003-500pi.jpg",
     "description": "<p><b>War and Peace</b> is a massive, sprawling novel that chronicles events in Russia during the Napoleonic Wars, when the French emperor Napoleon Bonaparte conquered much of Europe during the first few years of the 19th century. Bonaparte unsuccessfully tried to expand his dominion into Russia, only to be turned back in 1812. The novel opens in July of 1805, with Russia allied with England, Austria, and Sweden to stave off Bonaparte’s aggressive expansion.</p>",
-    "author": 3
+    "author_ids": ["3"]
+  },
+  {
+    "id": 7,
+    "name": "The Twelve Chairs",
+    "image": "http://upload.wikimedia.org/wikipedia/commons/e/e1/The_Twelve_Chairs_monument.jpg",
+    "description": "<p><b>The Twelve Chairs</b> satirizes not only its central characters, but also the people and institutions they encounter: the operations of a Moscow newspaper, student housing, a provincial chess club, and so on. Bender represents values of the old order, egoism and individualism. He knows 'four hundred comparatively honest ways of taking money away from the population', and he has no future in the post revolutionary Soviet Union. Ilf and Petrov’s observations on aspects of everyday life are comic, but shrewd.</p>",
+    "author_ids": ["4", "5"]
   }];
 
 App.Author.FIXTURES = [{
@@ -117,4 +124,16 @@ App.Author.FIXTURES = [{
     "name": "Leo Tolstoy",
     "biography": "<p>After reading Schopenhauer's The World as Will and Representation, <b>Tolstoy</b> gradually became converted to the ascetic morality upheld in that work as the proper spiritual path for the upper classes: 'Do you know what this summer has meant for me? Constant raptures over Schopenhauer and a whole series of spiritual delights which I've never experienced before. ... no student has ever studied so much on his course, and learned so much, as I have this summer.'</p>",
     "book_ids": ["5", "6"]
+  },
+  {
+    "id": 4,
+    "name": "Yevgeny Petrov",
+    "biography": "<p><b>Yevgeny Petrov</b>, a popular Soviet author in the 1920s and 1930s. He often worked in collaboration with Ilya Ilf. He was the brother of Valentin Katayev. Following Nazi Germany's invasion of the Soviet Union, Petrov became a war correspondent. He was killed in a plane crash while returning from besieged Sevastopol. The short film Envelope was dedicated to Yevgeny.</p>",
+    "book_ids": ["7"]
+  },
+  {
+    "id": 5,
+    "name": "Ilya Ilf",
+    "biography": "<p><b>Ilya Ilf</b>, pseudonym of Iehiel-Leyb (Ilya) Arnoldovich Faynzilberg (October 15 [O.S. October 3] 1897 in Odessa – April 13, 1937), was a popular Jewish Soviet author of the 1920s and 1930s, who worked in collaboration with Yevgeni Petrov as Ilf and Petrov. Ilf died from tuberculosis in 1937.</p>",
+    "book_ids": ["7"]
   }];

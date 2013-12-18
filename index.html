@@ -51,9 +51,15 @@
   </script>
 
   <script type="text/x-handlebars" id="book">
-  <div class="row">
-        <div class="span9">{{#link-to 'author' author.id}}{{author.name}}{{/link-to}}</br>{{{description}}}</div>
-    <div class="span3"><img {{bindAttr src="image"}}></div>
+  <div>
+      {{#each author in author_ids}}       
+    <div>{{#link-to 'author' author.id}}{{author.name}}{{/link-to}} 
+      {{/each}}
+      <div class="row">
+        <div class="span8"></br>{{{description}}}</div>
+      <div class="span3"><img {{bindAttr src="image"}}>
+      </div>
+    </div>
   </div>  
   </script>
 

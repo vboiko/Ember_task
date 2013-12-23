@@ -36,7 +36,7 @@ App.AuthorsRoute = Ember.Route.extend({
  });
 
 App.ApplicationAdapter= DS.RESTAdapter.extend({
-  host:'json',
+  //host:'json',
   pathForType: function(type) {
     return Ember.String.pluralize(type) + '.json';
   }
